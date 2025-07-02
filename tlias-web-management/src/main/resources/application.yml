@@ -1,0 +1,37 @@
+# 配置应用名称
+spring:
+  application:
+    name: tlias-web-management
+
+  # 配置数据库连接信息
+  datasource:
+#    # 切换连接池为 Druid
+#    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/tlias?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 3768491
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    #文件上传配置
+    multipart:
+      #最大单个文件大小
+      max-file-size: 10MB
+      #最大请求大小(所有文件大小和表单数据大小的总和)
+      max-request-size: 100MB
+
+# 配置 MyBatis 日志输出到控制台
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#  # 指定 XML 映射配置文件的路径
+#  mapper-locations: classpath:mapper/*.xml
+
+    #开启驼峰命名映射开关（解决字段名属性名不一致）
+    map-underscore-to-camel-case: true
+
+# 配置事务管理日志级别
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
