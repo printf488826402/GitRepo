@@ -1,3 +1,4 @@
+//全局异常处理类
 package com.ly.exception;
 
 import com.ly.pojo.Result;
